@@ -536,8 +536,8 @@ class (ErrorComponent e, Stream s, A.Alternative m, MonadPlus m)
   hidden :: m a -> m a
   hidden = label ""
 
-  -- | The parser @try p@ behaves like parser @p@, except that it backtracks
-  -- parser state when @p@ fails (either consuming input or not).
+  -- | The parser @try p@ behaves like parser @p@, except in case of failure
+  -- it backtracks if input was consumed.
   --
   -- This combinator is used whenever arbitrary look ahead is needed. Since
   -- it pretends that it hasn't consumed any input when @p@ fails, the
